@@ -1,0 +1,1 @@
+char* cleanJunk(char* content);

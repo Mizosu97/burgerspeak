@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include "file.c"
-#include "cleaner.c"
-#include "parser.c"
-#include "lexer.c"
+#include "includes/file.h"
+#include "includes/cleaner.h"
 
 int main(int arc, char** argv)
 {
