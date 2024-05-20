@@ -1,0 +1,9 @@
+cook burger = 700; # cook variable #
+
+burger = burger + 27;
+
+serve(burger); # print #
+
+cook b = "gufifufufiffif8tt";
+
+serve(b);
