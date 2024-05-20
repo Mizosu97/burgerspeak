@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Clean comments, newlines, and tabs */
 char* cleanJunk(char* content)
 {
+	printf("Started.");
 	char* result = (char*)malloc(sizeof(content));
 
 	char lc;
@@ -34,6 +36,7 @@ char* cleanJunk(char* content)
 			case '\t':
 				if (instring == 1)
 					result[counter++] = c;
+				break;
 			default:
 				if (incomment == 0)
 					result[counter++] = c;
@@ -42,7 +45,7 @@ char* cleanJunk(char* content)
 		lc = c;
 	}
 
-	realloc(result, (counter+2) * sizeof(char));
+	result = (char*)realloc(result, (counter+2) * sizeof(char));
 	result[counter+2] = '\0';
 	return result;
 }
