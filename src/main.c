@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 	char* CleanedSource;
 
 	if (argc != 0)
-		Source = getFileContents(argv[1]);
+		Source = file_getFileContents(argv[1]);
 	else {
 		printf("No source file supplied.");
 		return 0;
@@ -16,11 +16,11 @@ int main(int argc, char** argv)
 
 	printf("%s", Source);
 
-	printf("Cleaning source.");
+	printf("\nCleaning source.");
 
-	CleanedSource = cleanJunk(Source);
+	CleanedSource = cleaner_cleanJunk(Source);
 
-	printf("%s", CleanedSource);
+	printf("\n%s", CleanedSource);
 
 	return 0;
 }

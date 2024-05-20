@@ -2,17 +2,17 @@
 #include <stdlib.h>
 
 /* Clean comments, newlines, and tabs */
-char* cleanJunk(char* content)
+char* cleaner_cleanJunk(char* content)
 {
-	printf("Started.");
-	char* result = (char*)malloc(sizeof(content));
+	char* cleanedContent = (char*)malloc(sizeof(content));
 
-	char lc;
 	int instring = 0;
 	int incomment = 0;
-	int counter = 0;
-	int i = 0;
-	for (char c = content[i]; c != '\0'; i++) {
+	char lc;
+	int indexCleaned = 0;
+	for (int index = 0; content[index] != '\0'; index++) {
+		char c = content[index];
+		
 		switch(c) {
 			case '\"':
 				if (lc != '\\') {
@@ -21,31 +21,44 @@ char* cleanJunk(char* content)
 					else
 						instring = 0;
 				}
+				if (incomment == 0) {
+					cleanedContent[indexCleaned] = c;
+					indexCleaned++;
+				}
 				break;
 			case '#':
 				if (instring == 0) {
 					if (incomment == 0)
 						incomment = 1;
-					else incomment = 0;
+					else
+						incomment = 0;
+				} else {
+					cleanedContent[indexCleaned] = c;
+					indexCleaned++;
 				}
 				break;
 			case '\n':
-				if (instring == 1)
-					result[counter++] = c;
+				if (instring == 1) {
+					cleanedContent[indexCleaned] = c;
+					indexCleaned++;
+				}
 				break;
 			case '\t':
-				if (instring == 1)
-					result[counter++] = c;
+				if (instring == 1) {
+					cleanedContent[indexCleaned] = c;
+					indexCleaned++;
+				}
 				break;
 			default:
-				if (incomment == 0)
-					result[counter++] = c;
+				if (incomment == 0) {
+					cleanedContent[indexCleaned] = c;
+					indexCleaned++;
+				}
 				break;
 		}
+
 		lc = c;
 	}
 
-	result = (char*)realloc(result, (counter+2) * sizeof(char));
-	result[counter+2] = '\0';
-	return result;
+	return cleanedContent;
 }

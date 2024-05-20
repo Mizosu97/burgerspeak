@@ -1,1 +1,1 @@
-char* getFileContents(char* fileName);
+char* file_getFileContents(char* fileName);

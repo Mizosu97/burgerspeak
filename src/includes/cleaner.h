@@ -1,1 +1,1 @@
-char* cleanJunk(char* content);
+char* cleaner_cleanJunk(char* content);

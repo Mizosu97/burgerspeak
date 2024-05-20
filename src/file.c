@@ -1,6 +1,7 @@
 #include <stdlib.h>
+#include <stdio.h>
 
-char* getFileContents(char* fileName)
+char* file_getFileContents(char* fileName)
 {
 	FILE* file;
 	file = fopen(fileName, "r");
