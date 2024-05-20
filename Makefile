@@ -1,6 +1,6 @@
 all:
-	gcc src/*.c -o build/burgerspeak
+	gcc src/*.c -g -o build/burgerspeak
 
 clean:
 	rm build/*
-	gcc src/*.c -o build/burgerspeak
+	gcc src/*.c -g -o build/burgerspeak

@@ -2,12 +2,12 @@
 #include "includes/file.h"
 #include "includes/cleaner.h"
 
-int main(int arc, char** argv)
+int main(int argc, char** argv)
 {
 	char* Source;
-	char * CleanedSource;
+	char* CleanedSource;
 
-	if (argv[1] != 0)
+	if (argc != 0)
 		Source = getFileContents(argv[1]);
 	else {
 		printf("No source file supplied.");
